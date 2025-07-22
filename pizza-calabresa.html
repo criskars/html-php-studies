@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Calabresa</title>
+    <style>
+        body {
+            background-color: lightgray;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+        }
+        ul, ol {
+            margin-left: 530px;
+        }
+        #countrysList {
+            list-style-image: url(estrela.png);
+        }
+        figure {
+            float: left; 
+            margin-right: 10px; 
+            border: 1px solid;
+        }
+        figcaption {
+            text-align: center;
+            padding: 3px;
+        }
+        #linkExterno {
+            display: block; 
+            background-color: gray;
+        }
+        #linkExterno:hover {
+            background-color: white;
+        }
+        a:hover {
+            background-color: white;
+        }
+    </style>
+    <script>
+        function escreverNome () {
+            nome.innerHTML = "Pizza calabresa";
+        }
+        window.onload = escreverNome;
+    </script>
+</head>
+
+<body>
+    <h1 id="nome"></h1>
+     <!-- a tag alt permite colocar o texto para SEO/identificação de leitores de imagens, além de exibir esse texto enquanto a imagem está carregando-->
+    <figure> 
+        <!-- para link em imagem, a tag a tem que ficar por fora da tag img-->
+        <img src="pizza-calabresa.jpg" width="500" height="500" 
+        title="Pizza Calabresa" alt="Pizza Calabresa">
+        <figcaption>
+            Legenda da imagem
+        </figcaption>
+    </figure>
+    <h2">Teste com quebra <br> de linha</h2>
+    <p> 
+        <a href="receita.html" target="_blank">
+            Link para a receita
+        </a>
+    </p>
+    <p> 
+        <a href="https://www.google.com/" target="_blank" id="linkExterno">
+            Link para site externo
+        </a>
+    </p>
+    <!-- para link interno, usa-se o ID do elemento, e coloca #id_do_elemento no href do elemento a-->
+    <p> <a href="#countrysList">Link interno</a>
+    <h3>Texto em 
+        <b>negrito</b>
+    </h3>
+    <!-- para HTML semântico, é preferível ustrong em quando for destacar uma parte do texto, e b para quando se quer deixar em negrito apenas.-->
+    <h3>Texto em 
+        <strong>strong</strong>
+    </h3>
+    <h4>Texto em 
+        <i>itálico</i>
+    </h4>
+    <!-- para HTML semântico, é preferível usar em quando for enfatizar uma parte do texto, e itálico para quando se quer a inclinação apenas.-->
+    <h4>Texto em 
+        <em>destaque</em>
+    </h4>
+    <h5>Texto em 
+        <u>sublinhado</u>
+    </h5>
+    <h6>Texto em 
+        <sub>subscrito</sub>
+    </h6>
+    <p>Texto em 
+        <sup>superescrito</sup>
+    </p>
+    <p>Texto em 
+        <s>riscado</s>
+    </p>
+    <!-- lista não ordenada - quando tem um elemento à esquerda com float, a margem ignora o elemento - isso com acontece com ul e ol
+     css sobre ids sobrescrevem o parâmetro type-->
+    <ul id="countrysList" type="square">
+        <li>Brasil</li>
+        <li>Argentina</li>
+    </ul>
+     <!-- lista ordenada - numérica ou ordenada conforme tipo-->
+    <ol type="I">
+        <li>Brasil</li>
+        <li>Argentina
+        <ul>
+            <li>São Paulo</li>
+            <li>Florianópolis</li>
+        </ul>
+        </li>
+    </ol>
+</body>
+
+</html>
