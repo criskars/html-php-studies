@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <title>Curso HTML5 Essencial</title>
+        <link href="css/estilo.css" rel="stylesheet" media="screen">
+        <script>
+            
+        </script>
+    </head>
+    <body>
+        <h2>Formulário</h2>
+        <form action="destino.pgp" method="post">
+            <label for="nome"> Nome:</label>
+            <input type="text" name="nome" id="nome" size="30" maxlength="100" required placeholder="Insira seu nome">
+            <label for="aniversario"> Data de aniversário::</label>
+            <input type="date" name="aniversario" id="aniversario">
+            <label for="filhos"> Quantidade de  filhos:</label>
+            <input type="number" name="filhos" id="filhos" min="1" max="10" value="1">
+            <label for="telefone"> Telefone:</label>
+            <input type="tel" name="telefone" id="telefone" autofocus>
+            <label for="email"> Email:</label>
+            <input type="email" name="email" id="email">
+            <label for="datalist"> Lojas:</label>
+            <input type="text" name="datalist" id="datalist" list="lojas">
+            <datalist id="lojas">
+                <option>Centauro</option>
+                <option>Renner</option>
+                <option>Zara</option>
+                <option>Riachuelo</option>
+            </datalist>
+            <label for="pets"> Quantidade de pets:</label>
+            <input type="range" name="pets" id="pets" min="1" max="10" oninput="qtdePets()">
+            <p>Quantidade selecionada: <span id="quantidadePets">1</span></p>
+            <label for="website"> Website:</label>
+            <input type="url" name="website" id="website">
+            <input type="submit" name="enviar" id="enviar" value="Enviar">
+        </form>
+        <!-- Na primeira tentativa, eu havia colocado esse script na tag head - só que nela ele carrega antes do body da página, e por isso, não consegue fazer o getElementById porque o elemento ainda não havia sido carregado - logo, scripts JS que interagem com o corpo da página obrigatoriamente precisam ser adicionados no body.-->
+        <script>
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');    
+            const formattedToday = `${yyyy}-${mm}-${dd}`;
+            document.getElementById('aniversario').setAttribute('max', formattedToday);
+
+            function qtdePets () {
+                document.getElementById('quantidadePets').innerHTML = document.getElementById('pets').value;
+            }
+        </script>
+    </body>
+</html>
