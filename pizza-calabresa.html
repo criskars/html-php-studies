@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizza Calabresa</title>
     <style>
-        :root {
-            --image-size: 500px;
-}
         body {
             background-color: lightgray;
             font-family: Arial, Helvetica, sans-serif;
             color: black;
         }
-        #listaImagem {
+        ul, ol {
+            margin-left: 530px;
+
+        }
+        #countrysList {
             list-style-image: url(estrela.png);
-            margin-left: calc(var(--image-size) + 30px);
         }
         figure {
             float: left; 
@@ -28,7 +28,6 @@
             padding: 3px;
         }
         #linkExterno {
-            display: block; 
             background-color: gray;
         }
         #linkExterno:hover {
@@ -36,6 +35,9 @@
         }
         a:hover {
             background-color: white;
+        }
+        p {
+            display: inline-block; 
         }
     </style>
     <script>
@@ -57,7 +59,7 @@
             Legenda da imagem
         </figcaption>
     </figure>
-    <h2">Teste com quebra <br> de linha</h2>
+    <h2">Teste com quebra <br> de linha</h2> <br>
     <p> 
         <a href="receita.html" target="_blank">
             Link para a receita
@@ -98,12 +100,12 @@
     </p>
     <!-- lista não ordenada - quando tem um elemento à esquerda com float, a margem ignora o elemento - isso com acontece com ul e ol
      css sobre ids sobrescrevem o parâmetro type-->
-    <ul id="listaImagem" type="square">
+    <ul id="countrysList" type="square">
         <li>Brasil</li>
         <li>Argentina</li>
     </ul>
      <!-- lista ordenada - numérica ou ordenada conforme tipo-->
-    <ol type="I" id="listaImagem">
+    <ol type="I">
         <li>Brasil</li>
         <li>Argentina
         <ul>
