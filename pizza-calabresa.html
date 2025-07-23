@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizza Calabresa</title>
     <style>
+        :root {
+            --image-size: 500px;
+}
         body {
             background-color: lightgray;
             font-family: Arial, Helvetica, sans-serif;
             color: black;
+            display: flex; 
         }
-        ul, ol {
-            margin-left: 530px;
-        }
-        #countrysList {
+        #listaImagem {
             list-style-image: url(estrela.png);
         }
         figure {
-            float: left; 
             margin-right: 10px; 
             border: 1px solid;
         }
@@ -97,12 +97,12 @@
     </p>
     <!-- lista não ordenada - quando tem um elemento à esquerda com float, a margem ignora o elemento - isso com acontece com ul e ol
      css sobre ids sobrescrevem o parâmetro type-->
-    <ul id="countrysList" type="square">
+    <ul id="listaImagem" type="square">
         <li>Brasil</li>
         <li>Argentina</li>
     </ul>
      <!-- lista ordenada - numérica ou ordenada conforme tipo-->
-    <ol type="I">
+    <ol type="I" id="listaImagem">
         <li>Brasil</li>
         <li>Argentina
         <ul>
