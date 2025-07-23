@@ -15,6 +15,7 @@
         <h2>Formulário</h2>
         <form action="destino.pgp" method="post">
             <label for="nome"> Nome:</label>
+            <!-- Para fins semânticos, existe o input type="search" - que serve para inputs de busca. Mas não muda nada visualmente/funcionalmente em comparação a um campo de texto-->
             <input type="text" name="nome" id="nome" size="30" maxlength="100" required placeholder="Insira seu nome">
             <label for="aniversario"> Data de aniversário::</label>
             <input type="date" name="aniversario" id="aniversario">
@@ -34,9 +35,11 @@
             </datalist>
             <label for="pets"> Quantidade de pets:</label>
             <input type="range" name="pets" id="pets" min="1" max="10" oninput="qtdePets()">
-            <p>Quantidade selecionada: <span id="quantidadePets">1</span></p>
+            <p>Quantidade selecionada: <span id="quantidadePets">5</span></p>
             <label for="website"> Website:</label>
             <input type="url" name="website" id="website">
+            <label for="cor"> Cor dos pets:</label>
+            <input type="color" name="cor" id="cor">
             <input type="submit" name="enviar" id="enviar" value="Enviar">
         </form>
         <!-- Na primeira tentativa, eu havia colocado esse script na tag head - só que nela ele carrega antes do body da página, e por isso, não consegue fazer o getElementById porque o elemento ainda não havia sido carregado - logo, scripts JS que interagem com o corpo da página obrigatoriamente precisam ser adicionados no body.-->
