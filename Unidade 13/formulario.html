@@ -4,8 +4,11 @@
         <meta charset="utf-8">
         <title>Curso HTML5 Essencial</title>
         <link href="css/estilo.css" rel="stylesheet" media="screen">
+        <!-- Aqui a função só é invocada no evento oninput do elemento, dessa forma, não tem problema ser declarada no head da página - ela fica pronta no DOM, mas só é invocada na geração do evento pelo usuário.-->
         <script>
-            
+            function qtdePets () {
+                document.getElementById('quantidadePets').innerHTML = document.getElementById('pets').value;
+            }
         </script>
     </head>
     <body>
@@ -45,9 +48,7 @@
             const formattedToday = `${yyyy}-${mm}-${dd}`;
             document.getElementById('aniversario').setAttribute('max', formattedToday);
 
-            function qtdePets () {
-                document.getElementById('quantidadePets').innerHTML = document.getElementById('pets').value;
-            }
+            
         </script>
     </body>
 </html>
