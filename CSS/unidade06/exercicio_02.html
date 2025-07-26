@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Curso de CSS</title>
         <style>
+            /* Retrabalhando CSS antigo, baseado em float, para display:flex, usando também o parâmetro gap.*/
             html {
                 background-image:url(imagens/grid.gif);
             }
@@ -12,9 +13,17 @@
                 display:block;
             }
 
-            article, div, h1, h2, p {
+            div {
                 margin:0;
                 padding:0;
+                display: flex;
+                gap: 10px
+            }
+
+            article, h1, h2, p {
+                margin:0;
+                padding:5px;
+
             }
 
             body {
@@ -25,31 +34,32 @@
             }
 
             .em {
-                float:left;
+                /* float:left; */
                 width:520px;
                 margin-bottom:50px;
                 background-color:rgba(153,102,153,0.5);
             }
 
             .percentual {
-                float:right;
+                /* float:right; */
                 width:380px;
                 background-color:rgba(255,255,204,0.5);
                 margin-bottom:50px;
             }
 
             footer {
-                width:960px;
+                width:calc(100% - 40px);
                 background-color:rgba(255,204,51,0.8);
                 clear:both;
             }
 
             h1 {
-
+                font-size: 300%;
+                
             }
 
             h2 {
-
+                font-size: 1em;
             }
 
             p {
@@ -66,6 +76,7 @@
         <article>
             <h1>Como navegadores calcula as unidades</h1>
 
+            <div>
             <section class="em">
                 <h2>Usando ems</h2>
                 <p>Cafe Townsend's visionary chef leads the way in a culinary revolution. Proclaimed by many to be the best chef in the world today, Chef Bienni blends earthy seasonal flavors and bold ingredients to create exquisite contemporary cuisine. </p>    
@@ -76,7 +87,8 @@
                 <h2>Usando Percentual</h2>
                 <p>Cafe Townsend's visionary chef leads the way in a culinary revolution. Proclaimed by many to be the best chef in the world today, Chef Bienni blends earthy seasonal flavors and bold ingredients to create exquisite contemporary cuisine. </p>    
                 <p>Cafe Townsend features a magical combination of excellent cuisine and musical entertainment. The finest pasta, seafood, veal and certified Angus steaks are served to you by the most talented waiters anywhere. Nightly entertainment features favorites from Broadway musical theatre, Grand Opera, and Neapolitan folk songs performed by our talented musical staff. Cafe Townsend offers the largest selection of Italian wines in California, and is the proud recipient of numerous awards from Wine Tasting Magazine. We were selected as one of Southern California Magazine's top 200 restaurants for the last 8 years!  Cafe Townsend restaurant is music to your ears, be it an intimate dinner for 2 or a banquet for up to 200. </p>  
-            </section>        
+            </section> 
+            </div>       
 
             <footer>
                 <p>Rodape da pagina de exercicio de CSS</p>
