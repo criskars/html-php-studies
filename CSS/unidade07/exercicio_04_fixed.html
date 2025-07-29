@@ -4,19 +4,23 @@
         <meta charset="utf-8">
         <title>Curso de CSS</title>
         <style>
-            html, body , h1 {
+            html, body {
                 margin:0;
                 padding:0;
             }
-
             html {
                 background:rgb(254,255,216);
             }
-
             article, aside, section, header, footer, nav {
                 display:block;
             }
-
+            /* position: sticky é muito útil para fazer headers que ficam fixo, mas a partir da rolagem começam a acompanhar o scroll, e vice-versa.*/
+            h1 {
+                position: sticky;
+                top: 0;
+                left: 40%;
+                margin: 0 auto;
+            }
             main {
                 width:660px;
                 background-color:rgb(255,255,255);
@@ -25,6 +29,7 @@
                 box-shadow: 0 0 10px #666;
                 margin:10px auto;
                 padding:10px;
+                height: 4000px;
             }
 
             #principal {
