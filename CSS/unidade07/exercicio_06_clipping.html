@@ -8,15 +8,12 @@
                 margin:0;
                 padding:0;
             }
-
             html {
                 background:rgb(254,255,216);
             }
-
             article, aside, section, header, footer, nav {
                 display:block;
             }
-
             main {
                 width:660px;
                 background-color:rgb(255,255,255);
@@ -28,7 +25,6 @@
                 position: relative;
                 height: 580px;
             }
-
             #principal {
                 background-color:rgb(240,240,240);
                 border:1px dotted #666666;
@@ -36,37 +32,30 @@
                 position: relative;
                 height: 450px;
             }
-
             section {
                 height:150px;width:150px;padding:10px;
             }
-
+                  /* é melhor usar clip-path do que clip, é mais moderno, dá mais opções, e permite cortes redondos, poligonais etc. Uma diferença é que ele vai sempre ser aplicado no elemento que vai ser cortado, e vai uma vez efetuando o corte, qualquer elemento em cima dele será cortado também. Dessa forma, fica mais fácil de trabalhar caso a intenção seja cortar o elemento por cima do debaixo - caso fosse cortar direto o elemento por cima, teria que especificar os pontos de corte.   */
             .janela1 {
                 background-color:rgb(153,204,51);
                 position:absolute;
                 top:100px;left:40px;
+                clip-path:inset(0 round 10px);
             }
-
             .janela2 {
                 background-color:rgb(255,204,51);
                 position:absolute;
-                top:150px;left:75px;
+                top:50px;left:10px;
             }
-
         </style>
     </head>
-
     <body>
         <main>
             <h1>Clipping</h1>
-
             <p>Each property serves a specific purpose. Understanding that purpose is the key to mastering CSS-based layouts.</p>
-
             <div id="principal">
-                <section class="janela1">Verde</section>
-                <section class="janela2">Amarelo</section>    
+                <section class="janela1">Verde<section class="janela2">Amarelo</section> </section>
             </div>
         </main>
-
     </body>
 </html>
