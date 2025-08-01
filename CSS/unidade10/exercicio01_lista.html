@@ -4,16 +4,30 @@
         <meta charset="utf-8">
         <title>Curso de CSS</title>
         <style>
+            /* A única forma de ter controle completo sobre a distância mínima entre o marcador de lista e o texto à direita é colocando o elemento dentro de outra tag e deixando a posição dele*/
             body {
                 font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
                 font-size:14px;
+            }
+            ul, ol {
+                list-style-image: url(imagens/estrela.png);
+                /* padding: 10px; */
+            }
+            li {
+                background-color: lightgray;
+                /* padding-left: -35px;
+                list-style-position: inside; */
+            }
+            span {
+                position: relative;
+                left: -5px;
             }
         </style>
 
         <body>
 
             <ul>
-                <li>Brasil</li>
+                <li><span>Brasil</span></li>
                 <li>Portugal</li>
                 <li>Angola</li>
                 <li>Moçambique</li>
