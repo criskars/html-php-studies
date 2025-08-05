@@ -1,11 +1,20 @@
 <html>
-    <head>
-        <title>Aulas de Javascript</title>
-        <script>
+  <head>
+    <title>Aulas de Javascript</title>
+    <script>
+      var sorteio;
+      var mega = new Array();
 
-        </script>
-    </head>
-    <body>
-        
-    </body>
+      for (i = 0; i < 6; i++) {
+        sorteio = Math.ceil(Math.random() * 60);
+        if (mega.indexOf(sorteio) == -1) {
+          mega.push(sorteio);
+        } else {
+          i--;
+        }
+      }
+      console.log(mega);
+    </script>
+  </head>
+  <body></body>
 </html>

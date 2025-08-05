@@ -1,15 +1,31 @@
 <html>
-    <head>
-        <title>Aulas de Javascript</title>
-        <script>
-            var salada = new Array();
-            salada[0] = "Uva";
-            salada[1] = "Mamão";
-            salada[2] = "Pêra";
-            salada[3] = "Maçã";        
-        </script>
-    </head>
-    <body>
-        
-    </body>
+  <head>
+    <title>Aulas de Javascript</title>
+    <script>
+      var salada = new Array();
+      salada[0] = "Uva";
+      salada[1] = "Mamão";
+      salada[2] = "Pêra";
+      salada[3] = "Maçã";
+      salada.push("Abacate");
+      console.log(salada);
+      // o sort ordena sempre strings, e converte o tipo dos itens dentro do array para string - ou seja, num array formado por [1, 2, 10] ele retornaria 1, 10, 2, porque considerando como texto, a ordem estaria correta. Para ordenar números, não existe função nativa no JS.
+      salada.sort();
+      console.log(salada);
+      salada.reverse();
+      console.log(salada);
+
+      var numeros = [1, 2, 10, 5, 15]
+      console.log(numeros.sort())
+      var numerosOrdenados = numeros.toSorted((a, b) => a-b)
+      // toSorted() aplica a ordenação mas sem alterar o array original, enquanto sort() altera o array original.
+      console.log(numerosOrdenados)
+      // função de comparação entre elemento a e b, verificando a diferença, para ordenar numericamente de forma crescente - comparando a - b
+      console.log(numeros.sort((a, b) => a - b))
+      // função de comparação entre elemento a e b - para ordem decrecente, compare b - a
+      console.log(numeros.sort((a, b) => b - a))
+      console.log(numeros.sort((a, b) => a ** b))
+    </script>
+  </head>
+  <body></body>
 </html>
