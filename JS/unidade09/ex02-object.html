@@ -1,11 +1,16 @@
 <html>
-    <head>
-        <title>Aulas de Javascript</title>
-        <script>
-
-        </script>
-    </head>
-    <body>
-        
-    </body>
+  <head>
+    <title>Aulas de Javascript</title>
+    <script>
+      var objeto = {
+        idade: 20,
+        nome: "Objeto",
+        info: function retornarInfos() {
+          return "Nome: " + this.nome + ", Idade: " + this.idade;
+        },
+      };
+      console.log(objeto.info());
+    </script>
+  </head>
+  <body></body>
 </html>

@@ -1,12 +1,41 @@
 <html>
-    <head>
-        <title>Aulas de Javascript</title>
-        <script>
-
-            
-        </script>
-    </head>
-    <body>
-        
-    </body>
+  <head>
+    <title>Aulas de Javascript</title>
+    <script>
+      var meses = [
+        "Janeiro",
+        "Fevereiro",
+        "Março",
+        "Abril",
+        "Maio",
+        "Junho",
+        "Julho",
+        "Agosto",
+        "Setembro",
+        "Outubro",
+        "Novembro",
+        "Dezembro",
+      ];
+      var agora = new Date();
+      console.log(
+        agora.getDate() +
+          " de " +
+          meses[agora.getMonth()] +
+          " de " +
+          agora.getFullYear()
+      );
+      var aniversario = new Date(1999, 3, 7);
+      var diasDaSemana = [
+        "Domingo",
+        "Segunda",
+        "Terça",
+        "Quarta",
+        "Quinta",
+        "Sexta",
+        "Sábado",
+      ];
+      console.log(diasDaSemana[aniversario.getDay()]) // Lembre-se que os meses começam do zero (0 = Janeiro)
+    </script>
+  </head>
+  <body></body>
 </html>

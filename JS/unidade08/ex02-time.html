@@ -1,11 +1,26 @@
 <html>
-    <head>
-        <title>Aulas de Javascript</title>
-        <script>
-            
-        </script>
-    </head>
-    <body>
-        
-    </body>
+  <head>
+    <title>Aulas de Javascript</title>
+    <script>
+      function formatarNumero(numero) {
+        return numero < 10 ? "0" + numero : numero;
+      }
+      setInterval(function () {
+        var agora = new Date();
+        var horas = agora.getHours();
+        var minutos = agora.getMinutes();
+        var segundos = agora.getSeconds();
+        console.clear();
+        console.log(
+          "Agora são " +
+            formatarNumero(horas) +
+            ":" +
+            formatarNumero(minutos) +
+            ":" +
+            formatarNumero(segundos)
+        );
+      }, 1000);
+    </script>
+  </head>
+  <body></body>
 </html>
