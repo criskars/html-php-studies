@@ -1,32 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <title>Curso jQuery Fundamental</title>
-        
-        <style>
-			body 	{ font-family:Arial, Helvetica, sans-serif; font-size:0.8em; }
-			ul 		{ margin:0; padding:0; list-style:none; width:200px }
-			li		{ margin-bottom:5px }
-			li a	{ padding:10px 6px; color:#39C; text-decoration:none } 
-        </style>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curso jQuery Fundamental</title>
 
-		<script src="jquery-3.2.1.min.js"></script>
-        <script>
-			$( function(e) {
-	
-            });
-		</script>
-    </head>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.8em;
+      }
+      ul {
+        margin: 0;
+        /* padding: 0; */
+        list-style: none;
+        width: 200px;
+      }
+      li {
+        margin-bottom: 5px;
+      }
+      li a {
+        padding: 10px 6px;
+        color: #39c;
+        text-decoration: none;
+      }
+    </style>
 
-    <body>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+      // Feito com JS puro
+      document.addEventListener("DOMContentLoaded", function () {
+        var links = document.querySelectorAll('a[href$=".zip"]');
+        links.forEach(function (link) {
+          if (link.parentElement) {
+            link.parentElement.style.listStyleImage =
+              "url(imagens/icon_zip.gif)";
+          }
+        });
+      });
+      //   Feito com jQuery
+      $(function (e) {
+        $(" a[href$='.pdf']").parent().css({
+          "list-style-image": "url(imagens/icon_pdf.gif)",
+        });
+      });
+    </script>
+  </head>
 
-		<ul>
-        	<li><a href="arquivo.zip">Arquivo compactado</a></li>
-            <li><a href="arquivo.zip">Arquivo zipado</a></li>
-            <li><a href="arquivo.pdf">Documento de Texto</a></li>
-            <li><a href="arquivo.pdf">Curriculum Vitae</a></li>
-			<li><a href="arquivo.zip">Arquivo para download</a></li>            
-        </ul>
-    </body>
+  <body>
+    <ul>
+      <li><a href="arquivo.zip">Arquivo compactado</a></li>
+      <li><a href="arquivo.zip">Arquivo zipado</a></li>
+      <li><a href="arquivo.pdf">Documento de Texto</a></li>
+      <li><a href="arquivo.pdf">Curriculum Vitae</a></li>
+      <li><a href="arquivo.zip">Arquivo para download</a></li>
+    </ul>
+  </body>
 </html>

@@ -1,32 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Curso jQuery Fundamental</title>
-        
-        <style>
-			ul		{ margin:0; padding:0; list-style:none }
-			li		{ display:inline-block; margin-right:10px }
-		</style>
-        
-        <script src="jquery-3.2.1.min.js"></script>
-        <script>
-			$( function(e) {
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curso jQuery Fundamental</title>
 
-			} )
-		
-		</script>
-        
-    </head>
+    <style>
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      li {
+        display: inline-block;
+        margin-right: 10px;
+      }
+    </style>
 
-    <body>
-		<ul>
-        	<li><img src="imagem/foto1.jpg"></li>
-            <li><img src="imagem/foto2.jpg"></li>
-            <li><img src="imagem/foto3.jpg"></li>
-            
-        </ul>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script></script>
+  </head>
 
-    </body>
-
+  <body>
+    <ul class="lista1">
+      <li><img src="imagem/foto1.jpg" /></li>
+      <li><img src="imagem/foto2.jpg" /></li>
+      <li><img src="imagem/foto3.jpg" /></li>
+    </ul>
+    <ul class="lista2"></ul>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+      // adicionando novos itens às listas usando append e insertAfter - e selecionando cada lista de acordo com sua classe.
+      $(function (e) {
+        $("ul.lista2").append(
+          $("<li><img src='imagem/foto5.jpg' /></li>"),
+          $("<li><img src='imagem/foto6.jpg' /></li>")
+        );
+        $("<li><img src='imagem/foto4.jpg' /></li>").insertAfter(
+          "ul.lista1 li:last-child"
+        );
+      });
+    </script>
+  </body>
 </html>
