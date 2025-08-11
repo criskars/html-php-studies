@@ -1,28 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Curso jQuery Fundamental</title> 
-        
-        <script src="jquery-3.2.1.min.js"></script>
-        <script>
-			$(function(e) {
-				
-			})
-		</script>        
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curso jQuery Fundamental</title>
 
-    <body>
-    	
-      
-		<ul>
-        		
-            <li>Curso HTML5 Essencial</li>
-            <li>Curso CSS3 Essencial</li>
-            <li>Curso Javascript Essencial</li>
-            <li>Curso jQuery Fundamental</li>
-        </ul>
-        
-    </body>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+      $(function (e) {
+        $("li:last").remove();
+        $("li:nth(1)").remove();
+        $("li:first").replaceWith("<li>Curso Booststrap</li>");
+        $("ul").wrapAll("<div></div>");
+        $("div").css({
+          "background-color": "#f0f0f0",
+          border: "1px solid #ccc",
+        });
+      });
+    </script>
+  </head>
 
+  <body>
+    <ul>
+      <li>Curso HTML5 Essencial</li>
+      <li>Curso CSS3 Essencial</li>
+      <li>Curso Javascript Essencial</li>
+      <li>Curso jQuery Fundamental</li>
+    </ul>
+  </body>
 </html>

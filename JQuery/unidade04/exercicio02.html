@@ -1,28 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Curso jQuery Fundamental</title>
-        
-        <script src="jquery-3.2.1.min.js"></script>
-        <script>
-			$( function(e) {
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curso jQuery Fundamental</title>
 
-			} )
-		</script>
-        
-    </head>
+    <script src="jquery-3.7.1.min.js"></script>
 
-    <body>
-    	<h1></h1>
-    
-		<ul id="listacursos">
-            <li>Curso HTML5 Essencial</li>
-            <li>Curso CSS3 Essencial</li>
-            <li>Curso Javascript Essencial</li>
-            <li>Curso jQuery Fundamental</li>
-        </ul>
+    <script>
+      $(function (e) {
+        // Para adicionar novos elementos ao HTML, bastaria mencionar o seletor do elemento que deseja adicionar e definir seu texto - já a posição desse item depende de onde no código o script está sendo declarado. Caso deseja-se adicionar um item antes ou depois de outro, pode-se usar os métodos prepend e append, respectivamente.
+        $("h1").text("Lista de Cursos:");
 
-    </body>
+        $("ul").append("<li>Curso Bootstrap Fundamental</li>");
+        $("ul").prepend("<li>Curso Bootstrap Fundamental</li>");
+      });
+    </script>
+  </head>
 
+  <body>
+    <h1></h1>
+
+    <ul id="listacursos">
+      <li>Curso HTML5 Essencial</li>
+      <li>Curso CSS3 Essencial</li>
+      <li>Curso Javascript Essencial</li>
+      <li>Curso jQuery Fundamental</li>
+    </ul>
+  </body>
 </html>
