@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curso jQuery Fundamental — Versão Refatorada</title>
+
+    <!-- Arquivo CSS externo recomendado -->
+    <style>
+      /* ====== RESET BÁSICO ====== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+      }
+
+      /* ====== MENU DE NAVEGAÇÃO ====== */
+      nav {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        width: 78px;
+        padding: 1px;
+        background-color: #000;
+        z-index: 3;
+      }
+
+      nav ul {
+        list-style: none;
+      }
+
+      nav li {
+        width: 78px;
+        height: 78px;
+        margin-bottom: 1px;
+      }
+
+      /* Botões dentro dos LI */
+      .nav-btn {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        cursor: pointer;
+      }
+
+      /* Imagens específicas */
+      .futebol {
+        background-image: url("imagem/futebol.png");
+      }
+      .basquete {
+        background-image: url("imagem/basquete.png");
+      }
+      .tenis {
+        background-image: url("imagem/tenis.png");
+      }
+
+      /* Efeito botão ativo */
+      li.ativo .nav-btn {
+        outline: 2px solid black;
+        filter: brightness(1.2);
+      }
+
+      /* ====== SEÇÕES ====== */
+      section {
+        width: 100%;
+        min-height: 100vh; /* evita JS para altura */
+      }
+
+      #primeira {
+        background-color: #066;
+      }
+      #segunda {
+        background-color: #933;
+      }
+      #terceira {
+        background-color: blue;
+      }
+    </style>
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+      $(function () {
+        /* Evento único para todos os botões */
+        $(".nav-btn").on("click", function () {
+          const destino = $(this).data("target"); // pega a seção destino
+          /* Anima rolagem suave */
+          $("html, body").animate({ scrollTop: $(destino).offset().top }, 1000);
+          /* Atualiza botão ativo */
+          $(".nav-btn").parent().removeClass("ativo");
+          $(this).parent().addClass("ativo");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- Menu acessível -->
+    <nav role="navigation" aria-label="Navegação principal">
+      <ul>
+        <li class="ativo">
+          <button
+            class="nav-btn futebol"
+            data-target="#primeira"
+            aria-label="Ir para Futebol"
+          ></button>
+        </li>
+        <li>
+          <button
+            class="nav-btn basquete"
+            data-target="#segunda"
+            aria-label="Ir para Basquete"
+          ></button>
+        </li>
+        <li>
+          <button
+            class="nav-btn tenis"
+            data-target="#terceira"
+            aria-label="Ir para Tênis"
+          ></button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Seções -->
+    <section id="primeira"></section>
+    <section id="segunda"></section>
+    <section id="terceira"></section>
+  </body>
+</html>

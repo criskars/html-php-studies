@@ -1,20 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <title>Curso jQuery Fundamental</title>
-        
-        <script src="jquery-3.2.1.min.js"></script>
-        <script>
-					
-		</script>        
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curso jQuery Fundamental</title>
 
-    <body>
-        <input type="button" id="cursohtml" value="Curso HTML5" />
-        <input type="button" id="cursocss" 	value="Curso CSS3" />
-        
-        
-    </body>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+      $(function () {
+        $("#cursohtml").click(function () {
+          alert("Clicou no botão Curso HTML5");
+        });
 
+        $("#cursocss").on("mouseover", function () {
+          alert("Passou o mouse por cima do botão Curso CSS3");
+          // O off mata o evento mencionado dentro dele, fazendo que qualquer nova ação que daria trigger nesse evento seja ignorada e não faça nada.
+          $("#cursocss").off("mouseover");
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <input type="button" id="cursohtml" value="Curso HTML5" />
+    <input type="button" id="cursocss" value="Curso CSS3" />
+  </body>
 </html>

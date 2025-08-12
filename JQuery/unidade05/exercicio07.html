@@ -1,72 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <title>Curso jQuery Fundamental</title>
-		<style>
-			body { margin:0; padding:0; }
-            nav {
-				position:fixed;
-				width:78px;
-				height:236px;
-				padding:1px;
-				top:10px;
-				left:10px;
-				box-shadow:0 0 5px #000;
-				background-color:#000;
-				z-index:3;	
-			}
-			
-			nav ul { margin:0; padding:0; list-style:none }
-			nav li { 
-				list-style-type:none; width:78px; height:78px;
-			 	background-repeat:no-repeat; margin-bottom:1px;
-				cursor:pointer;
-			}
-			
-			nav li:first-child 	{ background-image:url(imagem/futebol.png) } 
-			nav li:nth-child(2) { background-image:url(imagem/basquete.png) } 
-			nav li:last-child 	{ background-image:url(imagem/tenis.png) } 
-		
-			#primeira 	{ width:300px; height:600px; background-color:#066 }
-			#segunda 	{ width:300px; height:600px; background-color:#933 }
-			#terceira 	{ width:300px; height:600px; background-color:#F93 }
-			
-        </style>
-         
-        <script src="jquery-3.7.1.min.js"></script>
-        <script>		
-			$( function(e) { 	
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curso jQuery Fundamental</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      nav {
+        position: fixed;
+        width: 78px;
+        padding: 1px;
+        top: 10px;
+        left: 10px;
+        background-color: #000;
+        z-index: 3;
+      }
 
-				// eventos
-				$('nav li:nth-child(1)').click(function() {
-					$("html, body").animate({scrollTop: $('#primeira').offset().top }, 1000);				
-				});
-								
-				$('nav li:nth-child(2)').click(function() {
-					$("html, body").animate({scrollTop: $('#segunda').offset().top }, 1000);				
-				});
+      nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      nav li {
+        list-style-type: none;
+        width: 78px;
+        height: 78px;
+        background-repeat: no-repeat;
+        margin-bottom: 1px;
+        cursor: pointer;
+      }
 
-				$('nav li:nth-child(3)').click(function() {
-					$("html, body").animate({scrollTop: $('#terceira').offset().top }, 1000);				
-				});
+      nav li:first-child {
+        background-image: url(imagem/futebol.png);
+      }
+      nav li:nth-child(2) {
+        background-image: url(imagem/basquete.png);
+      }
+      nav li:nth-child(3) {
+        background-image: url(imagem/tenis.png);
+      }
+      nav li.ativo {
+        outline: 2px solid black;
+        filter: brightness(1.2);
+      }
+      #primeira {
+        width: 100%;
+        background-color: #066;
+      }
+      #segunda {
+        width: 100%;
+        background-color: #933;
+      }
+      #terceira {
+        width: 100%;
+        background-color: blue;
+      }
+    </style>
 
-			});			
-		</script>   
-    </head>
-    <body>
-		<nav>
-        	<ul>
-            	<li id="tela1"></li>
-            	<li id="tela2"></li>
-                <li id="tela3"></li>
-            </ul>
-        </nav>
-        
-        <div id="primeira"></div>
-        <div id="segunda"></div>
-        <div id="terceira"></div>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+      $(function (e) {
+        $("div").css("height", $(window).height());
+        $(window).resize(function () {
+          $("div").css("height", $(window).height());
+        });
+        $("nav li:nth-child(1)").click(function (e) {
+          $("html, body").animate(
+            { scrollTop: $("#primeira").offset().top },
+            1000
+          );
+          $("nav li").removeClass("ativo");
+          $("nav li:nth-child(1)").addClass("ativo");
+        });
+        $("nav li:nth-child(2)").click(function (e) {
+          $("html, body").animate(
+            { scrollTop: $("#segunda").offset().top },
+            1000
+          );
+          $("nav li").removeClass("ativo");
+          $("nav li:nth-child(2").addClass("ativo");
+        });
+        $("nav li:nth-child(3)").click(function (e) {
+          $("html, body").animate(
+            { scrollTop: $("#terceira").offset().top },
+            1000
+          );
+          $("nav li").removeClass("ativo");
+          $("nav li:nth-child(3").addClass("ativo");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li id="tela1"></li>
+        <li id="tela2"></li>
+        <li id="tela3"></li>
+      </ul>
+    </nav>
 
-    </body>
-
+    <div id="primeira"></div>
+    <div id="segunda"></div>
+    <div id="terceira"></div>
+  </body>
 </html>
