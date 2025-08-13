@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curso jQuery Fundamental</title>
+    <style>
+      #container {
+        width: 600px; /* largura visível */
+        overflow: hidden;
+        cursor: grab;
+      }
+
+      #container:active {
+        cursor: grabbing;
+      }
+
+      #janela {
+        display: flex;
+        position: relative;
+        will-change: transform;
+        user-select: none; /* evita seleção de texto ao arrastar */
+      }
+
+      #janela img {
+        width: 200px;
+        height: 150px;
+        flex-shrink: 0;
+        pointer-events: none; /* evita "pegar" a imagem durante o drag */
+      }
+    </style>
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+      $(function () {
+        let $container = $("#container");
+        let $janela = $("#janela");
+        let larguraFotos = $janela.find("img").outerWidth(true);
+        let qtdFotos = $janela.find("img").length;
+
+        // Duplica imagens para rolagem infinita
+        $janela.append($janela.html());
+
+        let posicao = 0;
+        let velocidade = 0;
+        let velocidadeNormal = 2;
+        let dragging = false;
+        let startX = 0;
+        let startPos = 0;
+        let ultimaX = 0;
+        let ultimaTempo = 0;
+        let velocidadeArraste = 0;
+
+        function mover() {
+          if (!dragging) {
+            // Aplicar inércia na velocidade com desaceleração
+            posicao -= velocidade;
+            velocidade *= 0.95; // fricção (quanto menor, mais rápido para)
+
+            // Parar quando a velocidade estiver muito baixa para evitar movimento infinito lento
+            if (Math.abs(velocidade) < 0.01) {
+              velocidade = velocidadeNormal;
+            }
+
+            // Loop infinito da posição
+            if (Math.abs(posicao) >= larguraFotos * qtdFotos) {
+              posicao += larguraFotos * qtdFotos;
+            }
+            if (posicao > 0) {
+              posicao -= larguraFotos * qtdFotos;
+            }
+
+            $janela.css("transform", `translateX(${posicao}px)`);
+          }
+          requestAnimationFrame(mover);
+        }
+
+        // Início do arraste
+        function dragStart(e) {
+          dragging = true;
+          velocidade = 0; // pausa movimento automático
+
+          startX = e.type.includes("touch") ? e.touches[0].clientX : e.clientX;
+          startPos = posicao;
+
+          ultimaX = startX;
+          ultimaTempo = Date.now();
+        }
+
+        // Movimento durante o arraste
+        function dragMove(e) {
+          if (!dragging) return;
+
+          let x = e.type.includes("touch") ? e.touches[0].clientX : e.clientX;
+          let delta = x - startX;
+          posicao = startPos + delta;
+
+          // Loop infinito durante o drag
+          if (posicao <= -larguraFotos * qtdFotos)
+            posicao += larguraFotos * qtdFotos;
+          if (posicao >= 0) posicao -= larguraFotos * qtdFotos;
+
+          $janela.css("transform", `translateX(${posicao}px)`);
+
+          // Calcular velocidade de arraste (pixels/ms)
+          let agora = Date.now();
+          let deltaX = x - ultimaX;
+          let deltaT = agora - ultimaTempo;
+          if (deltaT > 0) {
+            velocidadeArraste = deltaX / deltaT;
+          }
+          ultimaX = x;
+          ultimaTempo = agora;
+        }
+
+        // Fim do arraste
+        function dragEnd() {
+          dragging = false;
+
+          // Definir velocidade para inércia (converter px/ms para px/frame - considerando ~60fps)
+          velocidade = velocidadeArraste * 16.67 * -1; // negativo para manter sentido esquerda
+
+          // Limitar velocidade máxima para evitar movimento excessivo
+          const velocidadeMaxima = 20;
+          if (velocidade > velocidadeMaxima) velocidade = velocidadeMaxima;
+          if (velocidade < -velocidadeMaxima) velocidade = -velocidadeMaxima;
+
+          // Caso esteja muito lento, restaura a velocidade normal
+          if (Math.abs(velocidade) < 0.5) {
+            velocidade = velocidadeNormal;
+          }
+        }
+
+        // Eventos de mouse
+        $container.on("mousedown", dragStart);
+        $(window).on("mousemove", dragMove);
+        $(window).on("mouseup", dragEnd);
+
+        // Eventos de toque (mobile)
+        $container.on("touchstart", dragStart);
+        $(window).on("touchmove", dragMove);
+        $(window).on("touchend touchcancel", dragEnd);
+
+        mover();
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="janela">
+        <img src="imagens/foto1.jpg" alt="Foto1" id="Foto1" />
+        <img src="imagens/foto2.jpg" alt="Foto2" id="Foto2" />
+        <img src="imagens/foto3.jpg" alt="Foto3" id="Foto3" />
+        <img src="imagens/foto4.jpg" alt="Foto4" id="Foto4" />
+        <img src="imagens/foto5.jpg" alt="Foto5" id="Foto5" />
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,24 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <title>Curso jQuery Fundamental</title>
-        <style>
-			#janela { position:absolute; height:200px; background-color:#069;  }
-		</style>
-        
-        <script src="jquery-3.7.1.min.js"></script>       
-        <script>
-			$( function() {
-	
-			});	
-		</script>        
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curso jQuery Fundamental</title>
+    <style>
+      #principal {
+        clip: rect(0, 200px, 200px, 0);
+        height: 200px;
+        position: absolute;
+      }
+      #janela {
+        position: relative;
+        display: flex;
+        height: 200px;
+        top: 0;
+        left: 0;
+      }
+      img {
+        flex-shrink: 0;
+      }
+    </style>
 
-    <body>
-        <div id="janela">
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+      function moverFotos() {
+        $("#janela").animate({ left: "-=200px" }, 300, function () {
+          // Pega a primeira imagem e move para o final
+          $("#janela img:first").appendTo("#janela");
+          // Reseta a posição
+          $("#janela").css("left", 0);
+        });
+      }
 
-        </div>
-    </body>
+      $(function () {
+        setInterval(moverFotos, 1000);
+      });
+    </script>
+  </head>
 
+  <body>
+    <div id="principal">
+      <div id="janela">
+        <img src="imagens/foto1.jpg" alt="Foto1" id="Foto1" />
+        <img src="imagens/foto2.jpg" alt="Foto2" id="Foto2" />
+        <img src="imagens/foto3.jpg" alt="Foto3" id="Foto3" />
+        <img src="imagens/foto4.jpg" alt="Foto4" id="Foto4" />
+        <img src="imagens/foto5.jpg" alt="Foto5" id="Foto5" />
+      </div>
+    </div>
+  </body>
 </html>

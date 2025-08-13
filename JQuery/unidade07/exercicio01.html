@@ -1,40 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <title>Curso jQuery Fundamental</title>
-        <style>
-			#janela { width:300px; height:300px; background-color:#069; margin-top:20px }
-		</style>
-        
-        <script src="jquery-3.7.1.min.js"></script>
-        <script>
-			$( function(e) {			
-				$('#mostrar').click( mostrarObjeto )
-				$('#esconder').click( esconderObjeto )
-				$('#reverso').click( reverterObjeto )
-			})
-			
-			function esconderObjeto() {
-			
-			}
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curso jQuery Fundamental</title>
+    <style>
+      #janela {
+        width: 300px;
+        height: 300px;
+        background-color: #069;
+        margin-top: 20px;
+      }
+    </style>
 
-			function mostrarObjeto() {
-				
-			}
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+      $(function (e) {
+        $("#mostrar").click(mostrarObjeto);
+        $("#esconder").click(esconderObjeto);
+        $("#reverso").click(reverterObjeto);
+      });
 
-			function reverterObjeto() {
-			
-			}
-		</script>        
-    </head>
+      function esconderObjeto() {
+		$("#janela").hide(300);
+	  }
 
-    <body>
-        <input type="button" id="mostrar" 	value="Mostrar" />
-        <input type="button" id="esconder" 	value="Esconder" />
-        <input type="button" id="reverso" 	value="Reverso" />
-        
-        <div id="janela"></div>
-    </body>
+      function mostrarObjeto() {
+		$("#janela").show(1000, function() {
+			alert("Exibição concluída!");
+		});
+	  }
 
+      function reverterObjeto() {
+		$("#janela").toggle(300);
+	  }
+    </script>
+  </head>
+
+  <body>
+    <input type="button" id="mostrar" value="Mostrar" />
+    <input type="button" id="esconder" value="Esconder" />
+    <input type="button" id="reverso" value="Reverso" />
+
+    <div id="janela"></div>
+  </body>
 </html>
