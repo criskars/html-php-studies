@@ -1,39 +1,72 @@
 <html>
-    <head>
-        <title>Curso de Bootstrap</title>
-        <meta http-equiv="X-UA-Compatible" content="IE-edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="_css/estilo.css" rel="stylesheet">
-    </head>
-    <body>
-        <!-- Digite abaixo seu codigo -->
-        <div class="container">
-            <form>
-                <div class="form-group">
-                    <label for="nome">Nome</label>
-                    <input class="form-control" type="text" id="nome" placeholder="Seu nome">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input class="form-control"  type="email" id="email" placeholder="Seu email">
-                </div>
-                
+  <head>
+    <title>Curso de Bootstrap</title>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-                <div class="checkbox">
-                    <label for="lista">
-                        <input type="checkbox" id="lista">Inscrever-me na newsletter
-                    </label>
-                </div>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="_css/estilo.css" rel="stylesheet" />
+    <style>
+      .form-control {
+        margin: 5px 5px;
+      }
+      #lista {
+        margin-right: 10px;
+        margin-left: 5px;
+      }
+      .col-form-label {
+        align-content: center;
+      }
+      .btn {
+        margin-left: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Digite abaixo seu codigo -->
+    <div class="container">
+      <form>
+        <div class="row">
+          <label for="nome" class="col-1 col-form-label">Nome</label>
+          <div class="col-11">
+            <input
+              class="form-control"
+              type="text"
+              id="nome"
+              placeholder="Seu nome"
+            />
+          </div>
 
-                <button class="btn btn-primary" type="submit" >Cadastrar-me</button>                
-            </form>
+          <label for="email" class="col-1 col-form-label">Email</label>
+          <div class="col-11">
+            <input
+              class="form-control"
+              type="email"
+              id="email"
+              placeholder="Seu email"
+            />
+          </div>
+
+          <div class="checkbox offset-1">
+            <label for="lista" class="col-form-label">
+              <input
+                type="checkbox"
+                id="lista"
+                class="col-form-input"
+              />Inscrever-me na newsletter
+            </label>
+          </div>
+          <div class="offset-1">
+            <button class="btn btn-primary col-3" type="submit">
+              Cadastrar-me
+            </button>
+          </div>
         </div>
-        <!-- Fim do seu codigo -->
-        <script src="../js/jquery.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="_js/script.js"></script>
-    </body>
+      </form>
+    </div>
+    <!-- Fim do seu codigo -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="_js/script.js"></script>
+  </body>
 </html>
