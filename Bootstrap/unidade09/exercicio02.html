@@ -1,41 +1,64 @@
 <html>
-    <head>
-        <title>Curso de Bootstrap</title>
-        <meta http-equiv="X-UA-Compatible" content="IE-edge">
-        <meta name="viewport" content="width=devide-width, initial-scale=1">
-        
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="_css/estilo.css" rel="stylesheet">
-    </head>
-    <body>
-        <!-- Digite abaixo seu codigo -->
-        <div class="container">
-            <div class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="_img/20160312_142956.jpg" class="img-responsive">
-                    </div>
-                    <div class="item">
-                        <img src="_img/20160312_153210.jpg" class="img-responsive">
-                    </div>
-                    <div class="item">
-                        <img src="_img/20160313_154922.jpg" class="img-responsive">
-                    </div>
-                    <div class="item">
-                        <img src="_img/20160313_180102.jpg" class="img-responsive">
-                    </div>
-                </div><!-- carousel-inner -->
-            </div><!-- fim do carousel -->
-            
-            
-            <h2>Nossa Viagem</h2>
-            <p>
-                Lorem ipsum dolor sit amet, in nam zril lobortis, vix in ubique tibique eligendi, mentitum volutpat usu in. Ius an mucius nonumes partiendo, nam eu quidam essent definiebas. Cu possit tincidunt disputando pro, ad vix quot essent utamur. Vel wisi conceptam ei, vis quis eius eu. Ut eam amet ancillae, usu ne dolor commune comprehensam. Sit offendit iudicabit assentior an, ad nam clita detraxit, id cum vidit atomorum. Cu mei illum verterem, liber constituam sed an. Mel et magna lobortis intellegat, maluisset reprehendunt nec ut. Et pro epicuri propriae consectetuer, in has dolorum laoreet singulis. At quo dicant eirmod saperet. Id vix iuvaret argumentum instructior, nam ex ceteros dissentias inciderint, agam viderer iuvaret sed te.
-            </p>
+
+<head>
+    <title>Curso de Bootstrap</title>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=devide-width, initial-scale=1">
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="_css/estilo.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Digite abaixo seu codigo -->
+
+    <div class="carousel slide" id="carousel" data-bs-ride="carousel" data-bs-interval=2000>
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
         </div>
-        <!-- Fim do seu codigo -->
-        <script src="../js/jquery.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="_js/script.js"></script>
-    </body>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="_img/20160312_142956.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="_img/20160312_153210.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="_img/20160313_154922.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="_img/20160313_180102.jpg" class="d-block w-100">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div class="container">
+        <h2>Nossa Viagem</h2>
+        <p>
+            Lorem ipsum dolor sit amet, in nam zril lobortis, vix in ubique tibique eligendi, mentitum volutpat usu in.
+            Ius an mucius nonumes partiendo, nam eu quidam essent definiebas. Cu possit tincidunt disputando pro, ad vix
+            quot essent utamur. Vel wisi conceptam ei, vis quis eius eu. Ut eam amet ancillae, usu ne dolor commune
+            comprehensam. Sit offendit iudicabit assentior an, ad nam clita detraxit, id cum vidit atomorum. Cu mei
+            illum verterem, liber constituam sed an. Mel et magna lobortis intellegat, maluisset reprehendunt nec ut. Et
+            pro epicuri propriae consectetuer, in has dolorum laoreet singulis. At quo dicant eirmod saperet. Id vix
+            iuvaret argumentum instructior, nam ex ceteros dissentias inciderint, agam viderer iuvaret sed te.
+        </p>
+    </div>
+    <!-- Fim do seu codigo -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="_js/script.js"></script>
+</body>
+
 </html>
