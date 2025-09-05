@@ -1,13 +1,60 @@
 <html>
-    <head>
-        <title>Curso de EcmaScript 6.0</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.min.js"></script>
-        <script type="text/babel">
-        
 
-        </script>
-    </head>
-    <body>
-    
-    </body>
+<head>
+    <title>Curso de EcmaScript 6.0</title>
+    <script type="text/javascript">
+        class Poligono {
+            constructor(lados, altura, largura, nome) {
+                this.altura = altura
+                this.largura = largura
+                this.lados = lados
+                this.nome = nome
+            }
+            escreverCaracteristicas() {
+                return this.largura != undefined ? `Sou um ${this.nome} de ${this.lados} lados, altura ${this.altura}cm e largura ${this.largura}cm` : `Sou um ${this.nome} de ${this.lados} lados com altura ${this.altura}cm.`
+            }
+        }
+
+        class Retangulo extends Poligono {
+            constructor(altura, largura) {
+                super(4, altura, largura, 'Retângulo')
+            }
+            area() {
+                return this.altura * this.largura
+            }
+        }
+
+        class Triangulo extends Poligono {
+            constructor(altura, largura) {
+                super(3, altura, largura, 'Triângulo')
+            }
+            area() {
+                return (this.altura * this.largura) / 2
+            }
+        }
+
+        class Hexagono extends Poligono {
+            constructor(altura) {
+                super(6, altura, undefined, 'Hexágono')
+            }
+            area() {
+                return (3 * Math.sqrt(3) * Math.pow(this.altura, 2)) / 2
+            }
+        }
+
+        var retangulo = new Retangulo(5, 7)
+        var triangulo = new Triangulo(5, 7)
+        var hexagono = new Hexagono(4)
+
+        console.log(retangulo.escreverCaracteristicas(), retangulo.area())
+        console.log(triangulo.escreverCaracteristicas(), triangulo.area())
+        console.log(hexagono.escreverCaracteristicas(), hexagono.area())
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
 </html>
