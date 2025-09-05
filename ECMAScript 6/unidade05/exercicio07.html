@@ -4,19 +4,16 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.min.js"></script>
         <script type="text/babel">
         
-            var jogador = {
-                nome:"Messi",
-                habilidades:["chutar","driblar","correr","fazer gols"],
-                escreverHabilidades: function() {
-                    var _this = this;
-                    this.habilidades.forEach(function(skill) {
-                        console.log(_this.nome + " é craque em " + skill);   
-                    });
-                }
+            var {nome, propriedades, array} = {
+                nome: "Objeto",
+                propriedades: {
+                    id: 1,
+                    descricao: "Descrição do objeto"
+                }, 
+                array: [1, 2, 3]
             }
-            
-            jogador.escreverHabilidades();
 
+            console.log(propriedades.descricao, array[1]);
         </script>
     </head>
     <body>

@@ -7,11 +7,10 @@
             var jogador = {
                 nome:"Messi",
                 habilidades:["chutar","driblar","correr","fazer gols"],
-                escreverHabilidades: function() {
-                    var _this = this;
-                    this.habilidades.forEach(function(skill) {
-                        console.log(_this.nome + " é craque em " + skill);   
-                    });
+                escreverHabilidades() {
+                    this.habilidades.forEach(skill =>
+                        console.log(this.nome + " é craque em " + skill)   
+                    ); // bind amarra o this ao contexto da função
                 }
             }
             
