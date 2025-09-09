@@ -27,15 +27,21 @@ fetch('../key.json')
                             videoId = item.snippet.resourceId.videoId;
                             videoThumbnail = item.snippet.thumbnails.maxres.url;
                             $("#janela").append(`
-                    <div class="col-12">
-                        <div class="card mb-2 shadow">
-                            <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank"><img src="${videoThumbnail}" class="card-img-top" alt="${videoTitle}"></a>
-                            <div class="card-body">
-                                <p class="card-text">${videoTitle}</p>`
-                                + `<a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="btn btn-primary">Assistir</a>` +
+
+                            <div class="card mb-2 shadow">
+                                <div class="image-container">
+                                    <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank"><img src="${videoThumbnail}" class="card-img-top" alt="${videoTitle}"></a>
+                                    
+                                    <div class="card-img-overlay d-flex flex-column justify-content-end align-items-center text-center">
+                                        <p class="card-text">${videoTitle}</p>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    `
+                                    + `<a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="btn btn-primary">Assistir</a>` +
                                 `</div>
-                        </div>
-                    </div>
+                            </div>
+
                     `);
                         })
                     }
