@@ -7,7 +7,18 @@
     </head>
     <body>
         <?php 
-
+            $_1 = 5;
+            $_2 = "5";
+            if ($_1 == $_2) {
+                echo "Verdadeiro" . "<br>";
+            } else {
+                echo "Falso" . "<br>";
+            }
+            if ($_1 === $_2) {
+                echo "Verdadeiro" . "<br>";
+            } else {
+                echo "Falso" . "<br>";
+            }
         ?>
     </body>
 </html>
