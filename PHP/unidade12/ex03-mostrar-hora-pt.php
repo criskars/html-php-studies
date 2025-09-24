@@ -1,26 +1,25 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Curso PHP FUNDAMENTAL</title>
-    </head>
 
-    <body>
-        <?php
-            date_default_timezone_set('US/Eastern');
-            $_agora = getdate();
-            
-            // criar elementos
-            $_segundo       = $_agora["seconds"];
-            $_minuto        = $_agora["minutes"];
-            $_hora          = $_agora["hours"];
+<head>
+    <meta charset="UTF-8">
+    <title>Curso PHP FUNDAMENTAL</title>
+</head>
 
-            $_dia           = $_agora["mday"];
-            $_mes           = $_agora["mon"];
-            $_ano           = $_agora["year"];
+<body>
+    <?php
+    $_agora = new dateTime();
 
-            // mostrar na tela
-            echo $_hora . ":" . $_minuto . ":" . $_segundo . " - " . $_dia . "/" . $_mes . "/" . $_ano;
-        ?>
-    </body>
+    $_formatter = new IntlDateFormatter(
+        'pt_BR',
+        IntlDateFormatter::FULL,
+        IntlDateFormatter::FULL,
+        'America/Sao_Paulo',
+        IntlDateFormatter::GREGORIAN
+    );
+
+    echo $_formatter->format($_agora);
+    ?>
+</body>
+
 </html>
