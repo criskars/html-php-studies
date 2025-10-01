@@ -14,6 +14,8 @@
     echo "Hoje é dia " . $data['weekday'] . "<br>";
     echo "Mês: " . $data['month'] . "<br>";
     echo "Hora: " . $data['hours'] . ":" . $data['minutes'] . ":" . $data['seconds'] . "<br>";
+
+    print_r(gettimeofday());
     ?>
 </body>
 
