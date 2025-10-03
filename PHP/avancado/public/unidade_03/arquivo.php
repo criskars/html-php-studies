@@ -8,10 +8,11 @@
 </head>
 
 <body>
-    <?php require("curso2.php"); ?>
+    <?php include("curso3.php"); ?>
+    <?php echo "<br>"; ?>
+    <?php include("curso2.php"); ?>
     <?php echo "<br>"; ?>
     <?php require_once("curso1.php"); ?>
-
 </body>
 
 </html>
