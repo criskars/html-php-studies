@@ -7,7 +7,7 @@
     // Consulta ao banco de dados
     $produtos = "SELECT produtoID, nomeproduto, tempoentrega, precounitario, imagempequena ";
     $produtos .= "FROM produtos ";
-    $resultado = mysqli_query($conecta, $produtos);
+    $resultado = mysqli_query($con, $produtos);
     if(!$resultado) {
         die("Falha na consulta ao banco");   
     }
@@ -21,6 +21,7 @@
         <!-- estilo -->
         <link href="_css/estilo.css" rel="stylesheet">
         <link href="_css/produtos.css" rel="stylesheet">
+        <link href="_css/produto_pesquisa.css" rel="stylesheet">
     </head>
 
     <body>
@@ -28,7 +29,12 @@
         <?php include_once("../_incluir/funcoes.php"); ?>
         
         <main>        
-            
+            <div id="janela_pesquisa">
+                <form action="listagem.php" method="get">
+                    <input type="text" name="produto" value="" placeholder="O que você procura?">
+                    <input type="image" name="pesquisa" src="../_assets/botao_search.png" alt="Pesquisar">
+                </form>
+            </div>
            <div id="listagem_produtos"> 
             <?php
                 while($linha = mysqli_fetch_assoc($resultado)) {
@@ -56,5 +62,5 @@
 
 <?php
     // Fechar conexao
-    mysqli_close($conecta);
+    mysqli_close($con);
 ?>

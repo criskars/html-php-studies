@@ -27,16 +27,13 @@ if (!$lista_produtos) {
 
     <main>
         <div id="listagem_produtos">
-            <ul>
                 <?php while ($linha = mysqli_fetch_assoc($lista_produtos)) {
-                    echo "<li class='imagem'>";
-                    echo "<img src=" . $linha["imagempequena"] . "></li>";
-                    echo "<li><h3>" . $linha["nomeproduto"] . "</h3></li>";
-                    echo "<li>" . $linha["tempoentrega"] . " dias úteis </li>";
-                    echo "<li>R$ " .  number_format($linha["precounitario"], 2, ",", ".") . "</li>";
+                    echo "<div class='card-item'><img src=" . $linha["imagempequena"] . ">";
+                    echo "<h3>" . $linha["nomeproduto"] . "</h3>";
+                    echo "<p>" . $linha["tempoentrega"] . " dias úteis </p>";
+                    echo "<p>R$ " .  real_format($linha["precounitario"]) . "</p></div>";
                 }
                 ?>
-            </ul>
         </div>
     </main>
 
