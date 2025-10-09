@@ -1,6 +1,10 @@
 <?php require_once("../../conexao/conexao.php");
 
 session_start();
+
+if (!isset($_SESSION["usuario"])) {
+    header("location: login.php");
+}
 ?>
 
 <?php
@@ -42,9 +46,6 @@ if (!$resultado) {
                 <input type="text" name="produto" placeholder="Pesquisa">
                 <input type="image" src="../_assets/botao_search.png">
             </form>
-            <?php
-            echo "Olá cliente ID " . $_SESSION["usuario"];
-            ?>
         </div>
 
         <div id="listagem_produtos">
