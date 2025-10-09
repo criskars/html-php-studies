@@ -7,6 +7,11 @@
     // Consulta ao banco de dados
     $produtos = "SELECT produtoID, nomeproduto, tempoentrega, precounitario, imagempequena ";
     $produtos .= "FROM produtos ";
+    if (isset($_GET["produto"])) {
+        if ($_GET["produto"] != "") {
+            $produtos .= "WHERE nomeproduto LIKE '%{$_GET["produto"]}%' ";
+        }
+    }
     $resultado = mysqli_query($con, $produtos);
     if(!$resultado) {
         die("Falha na consulta ao banco");   

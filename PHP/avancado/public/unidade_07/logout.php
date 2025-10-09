@@ -1,15 +1,8 @@
 <?php require_once("../../conexao/conexao.php");
-
-// Inicializar variável de sessão
 session_start();
-
-if (!isset($_SESSION["usuario"])) {
-    echo "<script>alert('Área restrita, faça login para acessar');</script>";
-    header("location: login.php");
-    // Redirecionar o visitante de volta para a página 1
-}
-
+unset($_SESSION["usuario"]); // Destruir a variável de sessão
 ?>
+
 <!doctype html>
 <html>
 
@@ -28,11 +21,9 @@ if (!isset($_SESSION["usuario"])) {
     <main>
         <?php require_once("../../conexao/conexao.php");
 
-        echo "Olá " . $_SESSION["usuario"];
+        echo "Você deslogou do sistema";
 
         ?>
-
-        <p><a href="pagina2.php">Página 2</p>
     </main>
 
     <?php include_once("../_incluir/rodape.php"); ?>

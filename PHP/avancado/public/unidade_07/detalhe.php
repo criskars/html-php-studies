@@ -10,7 +10,7 @@
     $consulta = "SELECT * ";
     $consulta .= "FROM produtos ";
     $consulta .= "WHERE produtoID = {$produto_id} ";
-    $detalhe    = mysqli_query($conecta,$consulta);
+    $detalhe    = mysqli_query($con,$consulta);
 
     // Testar erro
     if ( !$detalhe ) {
@@ -66,5 +66,5 @@
 
 <?php
     // Fechar conexao
-    mysqli_close($conecta);
+    mysqli_close($con);
 ?>

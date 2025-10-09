@@ -24,5 +24,5 @@
 
 <?php
     // Fechar conexao
-    mysqli_close($conecta);
+    mysqli_close($con);
 ?>
