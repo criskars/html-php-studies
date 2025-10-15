@@ -2,7 +2,7 @@
 <?php
     // tabela de transportadoras
     $tr = "SELECT * FROM transportadoras ";
-    $consulta_tr = mysqli_query($conecta, $tr);
+    $consulta_tr = mysqli_query($con, $tr);
     if(!$consulta_tr) {
         die("erro no banco");
     }
@@ -49,5 +49,5 @@
 
 <?php
     // Fechar conexao
-    mysqli_close($conecta);
+    mysqli_close($con);
 ?>
