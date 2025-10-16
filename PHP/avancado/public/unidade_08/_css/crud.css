@@ -10,6 +10,13 @@ main div#janela_formulario form {
     font-weight: 500;
 }
 
+main div#janela_formulario form label {
+    font-family: sans-serif;
+    font-size: 12px;
+    width:120px;
+    text-align: center;
+}
+
 main div#janela_formulario form h2  {
     font-family: sans-serif;
     color:#C5996B;
