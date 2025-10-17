@@ -2,7 +2,7 @@
 <?php
     // tabela de transportadoras
     $tr = "SELECT * FROM transportadoras ";
-    $consulta_tr = mysqli_query($conecta, $tr);
+    $consulta_tr = mysqli_query($con, $tr);
     if(!$consulta_tr) {
         die("erro no banco");
     }
@@ -33,6 +33,12 @@
                     <li><?php echo $linha["cidade"] ?></li>
                     <li><a href="alteracao.php?codigo=<?php echo $linha["transportadoraID"] ?>">Alterar</a> </li>
                     <li><a href="exclusao.php?codigo=<?php echo $linha["transportadoraID"] ?>">Excluir</a> </li>
+                    <script>
+                        function confirmarExclusao() {
+                            return confirm('Tem certeza que deseja excluir a transportadora <?php echo $linha["nometransportadora"] ?>?');
+                        }
+                        document.querySelector('a[href="exclusao.php?codigo=<?php echo $linha["transportadoraID"] ?>"]').onclick = confirmarExclusao;
+                    </script>
                 </ul>
                 <?php
                     }
@@ -46,5 +52,5 @@
 
 <?php
     // Fechar conexao
-    mysqli_close($conecta);
+    mysqli_close($con);
 ?>

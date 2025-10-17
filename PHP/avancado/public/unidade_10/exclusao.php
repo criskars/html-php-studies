@@ -1,28 +1,34 @@
-<?php require_once("../../conexao/conexao.php"); ?>
+<?php require_once("../../conexao/conexao.php");
+if (!isset($_GET["codigo"])) {
+    header("location:listagem.php");
+}
+$transportadoraID = $_GET["codigo"];
 
-<!doctype html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Curso PHP Integração com MySQL</title>
-        
-        <!-- estilo -->
-        <link href="_css/estilo.css" rel="stylesheet">
-    </head>
+$tr = "SELECT * ";
+$tr .= "FROM transportadoras ";
 
-    <body>
-        <?php include_once("../_incluir/topo.php"); ?>
-        <?php include_once("../_incluir/funcoes.php"); ?> 
-        
-        <main>  
-            
-        </main>
+if (isset($_GET["codigo"])) {
+    $tr .= "WHERE transportadoraID = {$transportadoraID} ";
+} else {
+    $tr .= "WHERE transportadoraID = 1 ";
+}
 
-        <?php include_once("../_incluir/rodape.php"); ?>  
-    </body>
-</html>
+$con_transportadora = mysqli_query($con, $tr);
+if (!$con_transportadora) {
+    die("Erro na consulta");
+}
 
-<?php
-    // Fechar conexao
-    mysqli_close($conecta);
-?>
+$info_transportadora = mysqli_fetch_assoc($con_transportadora);
+$nome_transportadora = $info_transportadora['nometransportadora'];
+
+$exclusao = "DELETE FROM transportadoras ";
+$exclusao .= "WHERE transportadoraID = $transportadoraID ";
+
+$operacao_exclusao = mysqli_query($con, $exclusao);
+if (!$operacao_exclusao) {
+    die(mysqli_error($con));
+} else {
+    header("location:listagem.php");
+}
+// Fechar conexao
+mysqli_close($conecta);

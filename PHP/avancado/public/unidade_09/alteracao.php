@@ -6,13 +6,13 @@ $transportadoraID = $_GET["codigo"];
 if (isset($_GET["codigo"])) {
     $transp .= "WHERE transportadoraID = $transportadoraID ";
 } else {
-    // header("location:listagem.php");
+    header("location:listagem.php");
 }
 
 if (isset($_POST["nometransportadora"])) {
     print_r($_POST);
     $nometransportadora = $_POST["nometransportadora"];
-    $endereço = $_POST["endereço"];
+    $endereço = $_POST["endereco"];
     $estadoID = $_POST["estado"];
     $cidade = $_POST["cidade"];
     $telefone = $_POST["telefone"];
@@ -33,9 +33,9 @@ if (isset($_POST["nometransportadora"])) {
 
     $operacao_alterar = mysqli_query($con, $alterar);
     if (!$operacao_alterar) {
-        die("Erro no banco");
+        die(mysqli_error($con));
     } else {
-        // header("location:listagem.php");
+        header("location:listagem.php");
     }
 }
 
@@ -70,8 +70,8 @@ if (!$consulta_transp) {
             <form action="alteracao.php" method="post">
                 <label for="nometransportadora">Nome da transportadora</label>
                 <input type="text" name="nometransportadora" id="nometransportadora" value="<?php echo $dados_transp["nometransportadora"]; ?>" required>
-                <label for="endereço">Endereço</label>
-                <input type="text" name="endereço" id="endereço" value="<?php echo $dados_transp["endereco"]; ?>" required>
+                <label for="endereco">Endereço</label>
+                <input type="text" name="endereco" id="endereco" value="<?php echo $dados_transp["endereco"]; ?>" required>
                 <label for="estado">Estado</label>
                 <select name="estado" id="estado">
                     <?php
@@ -126,7 +126,7 @@ if (!$consulta_transp) {
                 <input type="text" name="cep" id="cep" value="<?php echo $dados_transp["cep"]; ?>" required>
                 <label for="cnpj">CNPJ</label>
                 <input type="text" name="cnpj" id="cnpj" value="<?php echo $dados_transp["cnpj"]; ?>" required>
-                <input type="hidden" name="transportadoraID" value="1">
+                <input type="hidden" name="transportadoraID" value="<?php echo $dados_transp["transportadoraID"]; ?>">
                 <input type="submit" value="Alterar transportadora">
             </form>
         </div>
