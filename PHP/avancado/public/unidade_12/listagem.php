@@ -11,7 +11,7 @@
         $nome_produto   = urlencode($_GET["produto"]);
         $produtos       .= "WHERE nomeproduto LIKE '%{$nome_produto}%' "; 
     }
-    $resultado = mysqli_query($conecta, $produtos);
+    $resultado = mysqli_query($con, $produtos);
     if(!$resultado) {
         die("Falha na consulta ao banco");   
     }
@@ -36,7 +36,7 @@
             <div id="janela_pesquisa">
                 <form action="listagem.php" method="get">
                     <input type="text"  name="produto" placeholder="Pesquisa"> 
-                    <input type="image" name="pesquisa" src="assets/botao_search.png">
+                    <input type="image" name="pesquisa" src="../_assets/botao_search.png">
                 </form>
             </div>
             
@@ -51,8 +51,8 @@
                         </a>
                     </li>
                     <li><h3><?php echo $linha["nomeproduto"] ?></h3></li>
-                    <li>Tempo de Entrega : <?php echo $linha["tempoentrega"] ?></li>
-                    <li>Preço unitário : <?php echo real_format($linha["precounitario"]) ?></li>
+                    <li>Tempo de Entrega: <?php echo $linha["tempoentrega"] ?></li>
+                    <li>Preço unitário: <?php echo real_format($linha["precounitario"]) ?></li>
                 </ul>
              <?php
                 }
@@ -67,5 +67,5 @@
 
 <?php
     // Fechar conexao
-    mysqli_close($conecta);
+    mysqli_close($con);
 ?>

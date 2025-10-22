@@ -7,7 +7,9 @@ if ($_SERVER['CONTENT_LENGTH'] > ini_get('post_max_size')) {
 } else if (!isset($_FILES['arquivo'])) {
     $mensagem = "Nenhum arquivo enviado ou arquivo excede o limite.";
 } else {
-    $mensagem = uploadArquivo($_FILES['arquivo']);
+    $resposta = uploadArquivo($_FILES['arquivo']);
+    $mensagem = $resposta[0];
+    echo $nome_arquivo = $resposta[1];
 }
 
 ?>
