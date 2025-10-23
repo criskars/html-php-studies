@@ -76,3 +76,24 @@ function alterarNome($arquivo)
     $codigo_data = $agora["hours"] . $agora["minutes"] . $agora["seconds"];
     return "foto_" . $resultado . "_" . $codigo_ano . "_" . $agora["yday"] . "_" . $codigo_data . "." . $extensao;
 }
+function enviarMensagem($dados)
+{
+    // Extrair dados do formulário
+    $nome = $dados['nome'];
+    $email = $dados['email'];
+    $mensagem = $dados['mensagem'];
+
+    // Configurar email
+    $destino = "cristian.astronomic@yahoo.com.br";
+    $remetente = "crisale.karsten@gmail.com";
+    $assunto = "Contato pelo site";
+
+    // Montar corpo do email
+    $corpo = "Nome: " . $nome . "\n" . "Email: " . $email . "\n" . "Mensagem: " . $mensagem . "\n";
+
+    // Enviar email
+    $headers = "From: " . $remetente . "\r\n" .
+        "Reply-To: " . $remetente . "\r\n" .
+        "X-Mailer: PHP/" . phpversion();
+    return mail($destino, $assunto, $corpo, $headers, "-f$remetente");
+}
