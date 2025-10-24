@@ -97,3 +97,4 @@ function enviarMensagem($dados)
         "X-Mailer: PHP/" . phpversion();
     return mail($destino, $assunto, $corpo, $headers, "-f$remetente");
 }
+
