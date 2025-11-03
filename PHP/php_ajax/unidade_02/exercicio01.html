@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitacao</title>
+    <script>
+        function carregarDados() {
+            var ajax;
+            if (window.XMLHttpRequest) {
+                ajax = new XMLHttpRequest();
+            } else {
+                ajax = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            ajax.open('GET', 'dados.txt');
+            ajax.send();
+            ajax.onreadystatechange = function () {
+                if (ajax.status == 200) {
+
+                    if (ajax.readyState == 3 && ajax.status == 200) {
+                        console.log("Carregando...");
+                    }
+                    if (ajax.readyState == 4 && ajax.status == 200) {
+                        console.log("Concluído");
+                        document.querySelectorAll("h1")[0].innerText = ajax.responseText;
+                    }
+                } else {
+                    console.log("Erro na requisição");
+                }
+            };
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn" onclick="carregarDados()">Clique aqui</button>
+    <h1>
+        Carregando...
+    </h1>
+</body>
+
+</html>
