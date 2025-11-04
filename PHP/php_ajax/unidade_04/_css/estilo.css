@@ -1,0 +1,14 @@
+div {
+    width: 500px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    display: none;
+}
+div#listagem h2 {
+    text-align: center;
+    color: #333;
+}
