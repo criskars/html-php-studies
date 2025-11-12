@@ -1,6 +1,6 @@
 <?php
     // Criar objeto de conexao
-    $conecta = mysqli_connect("localhost","root","","andes");
+    $conecta = mysqli_connect("localhost","root","","website");
     if ( mysqli_connect_errno()  ) {
         die("Conexao falhou: " . mysqli_connect_errno());
     }
@@ -10,6 +10,7 @@
         
         $exclusao = "DELETE FROM transportadoras ";
         $exclusao .= "WHERE transportadoraID = {$tID}";
+        $retorno = array();
         $con_exclusao = mysqli_query($conecta,$exclusao);
         if($con_exclusao) {
             $retorno["sucesso"] = true;
