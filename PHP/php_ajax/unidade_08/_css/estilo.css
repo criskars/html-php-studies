@@ -61,5 +61,6 @@ main div#janela_formulario form input[type="submit"] {
 main div#janela_formulario form #mensagem {
     margin:10px auto;
     display: none;
+    width:350px;
 }
 /* fim do estilo da pesquisa */
