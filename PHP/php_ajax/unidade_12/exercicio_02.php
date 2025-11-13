@@ -40,8 +40,48 @@
             </div>
         </main>
         
-        <script src="_js/jquery.js"></script>
+        <script src="_js/jquery-3.7.1.min.js"></script>
         <script>
+            $('#cep').on('blur', function() {
+                var cep = $(this).val().replace(/\D/g, '');
+                if (cep !== "") {
+                    var validacep = /^[0-9]{8}$/;
+                    if(validacep.test(cep)) {
+                        $.ajax({
+                            url: 'https://viacep.com.br/ws/' + cep + '/json/',
+                            type: 'GET',
+                            dataType: 'json',
+                            success: function(data) {
+                                if (!("erro" in data)) {
+                                    $('#endereco').val(data.logradouro);
+                                    $('#bairro').val(data.bairro);
+                                    $('#cidade').val(data.localidade);
+                                    $('#estado').val(data.uf);
+                                } else {
+                                    limparFormulario();
+                                    alert("CEP não encontrado.");
+                                }
+                            },
+                            error: function() {
+                                limparFormulario();
+                                alert("Erro ao consultar o CEP.");
+                            }
+                        });
+                    } else {
+                        limparFormulario();
+                        alert("Formato de CEP inválido.");
+                    }
+                } else {
+                    limparFormulario();
+                }
+            });
+
+            function limparFormulario() {
+                $('#endereco').val("");
+                $('#bairro').val("");
+                $('#cidade').val("");
+                $('#estado').val("");
+            }
         </script>
     </body>
 </html>

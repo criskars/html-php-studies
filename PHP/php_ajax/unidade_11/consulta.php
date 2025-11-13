@@ -14,7 +14,12 @@
                 <label for="categorias">Categorias</label>
                 <select id="categorias">
                 </select>
+                <label for="produtos">Produtos</label>
+                <select id="produtos">
+                </select>
             </form>
+        </div>
+        <div id="resultado">
         </div>
     </main>
 
@@ -37,13 +42,19 @@
                     "categoriaID": categoriaID
                 },
                 success: function(data) {
-                    console.log(data);
+                    var produtos = '';
+                    var selectProdutos = $('#produtos');
+                    selectProdutos.empty();
+                    selectProdutos.append('<option value="">Escolha um produto</option>');
+                    $.each($.parseJSON(data), function() {
+                        produtos += '<option value="' + arguments[1].produtoID + '">' + arguments[1].nomeproduto + '</option>'
+                    });
+                    selectProdutos.append(produtos);
                 }
             });
         };
         $("#categorias").on('change', function() {
             var categoriaID = $(this).val();
-            console.log(categoriaID);
             retornarProdutos(categoriaID);
         });
     </script>

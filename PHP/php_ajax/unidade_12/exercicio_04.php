@@ -7,7 +7,7 @@
 
     <body>
 
-        <script src="_js/jquery.js"></script>
+        <script src="_js/jquery-3.7.1.min.js"></script>
         <script>
         </script>
     </body>
