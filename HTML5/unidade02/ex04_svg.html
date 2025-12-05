@@ -3,7 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <title>Curso HTML5 Avançado</title>
-        
+        <style>
+            #losang {
+                transform: translate(90px, 50px);
+                transform-origin: center;
+            }
+        </style>
     </head>
     
     <!--
@@ -22,7 +27,10 @@
     
     <body>
         <svg height="500" width="500">
-            
+            <polygon points="173,182 319,182 246,38" style="fill:blue;stroke:black;stroke-width:1" />
+            <polygon id="losang" points="200,200 300,350 400,200 300,50" style="fill:orange;stroke:black;stroke-width:1" />
+            <polygon points="90,15 150,15 190,75 150,135 90,135 50,75" style="fill:green;stroke:black;stroke-width:1" />
+            <polygon points="38,166 16,236 76,188 5,188 60,236" style="fill:red;stroke:black;stroke-width:1" />
         </svg>	
 	</body>
 </html>

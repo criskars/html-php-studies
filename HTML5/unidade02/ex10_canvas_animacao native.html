@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Curso HTML5 Avançado</title>
+
+    <script src="cake.js"></script>
+    <script>
+        window.onload = function () {
+            let canvas = document.getElementById('minhaTela');
+            let ctx = canvas.getContext('2d');
+
+            let mouseX = 0;
+            let mouseY = 0;
+            canvas.addEventListener('mousemove', function (event) {
+                let rect = canvas.getBoundingClientRect();
+                mouseX = event.clientX - rect.left;
+                mouseY = event.clientY - rect.top;
+            });
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = 'red';
+                ctx.fillRect(mouseX, mouseY, 50, 50);
+                requestAnimationFrame(animate);
+            }
+            animate();
+        };
+    </script>
+</head>
+
+<body>
+    <canvas id="minhaTela" width="490" height="370">
+
+    </canvas>
+</body>
+
+</html>

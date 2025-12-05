@@ -14,7 +14,15 @@
 			function desenhar() {
 				var canvas=document.querySelector("#minhaTela");
 				if ( canvas.getContext ) {
-
+					let linha = canvas.getContext("2d");
+					linha.linewidth = 2;
+					linha.strokeStyle = "green";
+					linha.moveTo(43,300);
+					linha.lineTo(100,250);
+					linha.lineTo(150,200);
+					linha.lineTo(200,150);
+					linha.lineTo(250,100);
+					linha.stroke();
 				}
 			}
 			

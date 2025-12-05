@@ -1,12 +1,41 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Curso HTML5 Avançado</title>
-        
-    </head>
-    
-    <body>
-	
-	</body>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Curso HTML5 Avançado</title>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("meu_canvas");
+            if (!canvas || !canvas.getContext) {
+                return false;
+            }
+            var contexto = canvas.getContext("2d");
+
+            // Desenhando uma linha
+            contexto.moveTo(25, 100);
+            contexto.lineTo(450, 100);
+            contexto.lineWidth = 5;
+            contexto.strokeStyle = "black";
+            contexto.stroke();
+
+            // Desenhando uma polilinha
+            contexto.beginPath();
+            contexto.moveTo(25, 25);
+            contexto.lineTo(450, 25);
+            contexto.lineWidth = 5;
+            contexto.strokeStyle = "red";
+            contexto.stroke();
+
+            contexto.fillStyle = "rgba(0, 0, 255, 0.5)";
+            contexto.fillRect(50, 50, 100, 100);
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="meu_canvas" width="500" height="400">
+    </canvas>
+</body>
+
 </html>
