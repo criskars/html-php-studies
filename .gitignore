@@ -1,3 +1,8 @@
 key.json
 andes.sql
 conexao.php
+cert.pem
+key.pem
+package-lock.json
+package.json
+https-config.js

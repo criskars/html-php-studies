@@ -1,68 +1,97 @@
 <!doctype html>
 <html lang="pt-br">
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Curso HTML5 Avançado</title>
-        
-        <style>
-			#status { 
-				display:block;
-				padding:10px;
-				border:1px dotted #999;
-				font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
-				color:#666;
-				font-size:12px;
-				margin-bottom:20px;
-				width:500px;
+<head>
+	<meta charset="UTF-8">
+	<title>Curso HTML5 Avançado</title>
+
+	<style>
+		#status {
+			display: block;
+			padding: 10px;
+			border: 1px dotted #999;
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			color: #666;
+			font-size: 12px;
+			margin-bottom: 20px;
+			width: 500px;
+		}
+
+		input[type=button] {
+			width: 170px;
+			padding: 10px;
+			color: #FFF;
+			background: linear-gradient(top, #F33, #933);
+			background: -webkit-linear-gradient(top, #F33, #933);
+			background: -moz-linear-gradient(top, #F33, #933);
+			border: 1px solid #333;
+			cursor: pointer;
+			border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+		}
+	</style>
+
+	<script>
+		var nav = null;
+
+		function pegarPosicao() {
+			document.getElementById("status").innerHTML = "aguarde...";
+
+			if (nav == null) {
+				nav = window.navigator;
+			}
+			if (nav.geolocation) {
+				nav.geolocation.watchPosition(retornarPosicao, retornarFalha, configsExtras);
+			} else {
+				document.getElementById("status").innerHTML = "Geolocalização não suportada neste navegador.";
 			}
 
-			input[type=button] {
-				width:170px;
-				padding:10px;
-				color:#FFF;
-				background:linear-gradient(top, #F33, #933 );
-				background:-webkit-linear-gradient(top, #F33, #933 );
-				background:-moz-linear-gradient(top, #F33, #933 );
-				border:1px solid #333;
-				cursor:pointer;
-				border-radius:5px;
-				-webkit-border-radius:5px;
-				-moz-border-radius:5px;
-			}			
-		</style>
-    
-        <script>        
-            var nav = null; 
-        
-			function pegarPosicao() {
-				document.getElementById("status").innerHTML = "aguarde..."; 
+		}
+		function retornarPosicao(pos) {
+			var latitude = pos.coords.latitude;
+			var longitude = pos.coords.longitude;
+			var precisao = pos.coords.accuracy;
 
-				if (nav == null) {
-					nav = window.navigator;
-				}
-
-				var geoloc = nav.geolocation;
-				if (geoloc) {
-					geoloc.getCurrentPosition(function (pos) {
-						var latitude = pos.coords.latitude;
-						var longitude = pos.coords.longitude;
-						var precisao = pos.coords.accuracy;
-
-						document.getElementById("status").innerHTML = "Latitude: " + latitude + "<br />Longitude: " + longitude + "<br />Precisão: " + precisao + " metros.";
-					});
-				} else {
-					document.getElementById("status").innerHTML = "Geolocalização não suportada neste navegador.";
-				}
+			document.getElementById("status").innerHTML = "Latitude: " + latitude + "<br />Longitude: " + longitude + "<br />Precisão: " + precisao + " metros.";
+		}
+		function retornarFalha(err) {
+			switch (err.code) {
+				case err.PERMISSION_DENIED:
+					document.getElementById("status").innerHTML = "Usuário negou a solicitação de Geolocalização.";
+					break;
+				case err.POSITION_UNAVAILABLE:
+					document.getElementById("status").innerHTML = "Informações de localização indisponíveis.";
+					break;
+				case err.TIMEOUT:
+					document.getElementById("status").innerHTML = "A solicitação expirou.";
+					break;
+				case err.UNKNOWN_ERROR:
+					document.getElementById("status").innerHTML = "Um erro desconhecido ocorreu.";
+					break;
 			}
-	
-        </script>
-        
-	</head>
-    <body>
-        <div id="status"></div>
-        
-        <input type="button" onclick="pegarPosicao()" value="Pegar Geolocalização"  /> 
-    </body>
+		}
+
+		function configsExtras () {
+			if (nav.geolocation) {
+				var opcoes = {
+					enableHighAccuracy: true,
+					timeout: 5000,
+					maximumAge: 500
+				};
+			}
+		}
+
+		console.log(navigator.geolocation)
+
+	</script>
+
+</head>
+
+<body>
+	<div id="status"></div>
+
+	<input type="button" onclick="pegarPosicao()" value="Pegar Geolocalização" />
+</body>
 
 </html>
