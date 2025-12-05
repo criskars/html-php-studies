@@ -37,6 +37,23 @@
         
 			function pegarPosicao() {
 				document.getElementById("status").innerHTML = "aguarde..."; 
+
+				if (nav == null) {
+					nav = window.navigator;
+				}
+
+				var geoloc = nav.geolocation;
+				if (geoloc) {
+					geoloc.getCurrentPosition(function (pos) {
+						var latitude = pos.coords.latitude;
+						var longitude = pos.coords.longitude;
+						var precisao = pos.coords.accuracy;
+
+						document.getElementById("status").innerHTML = "Latitude: " + latitude + "<br />Longitude: " + longitude + "<br />Precisão: " + precisao + " metros.";
+					});
+				} else {
+					document.getElementById("status").innerHTML = "Geolocalização não suportada neste navegador.";
+				}
 			}
 	
         </script>
