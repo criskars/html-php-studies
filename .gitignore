@@ -6,3 +6,4 @@ key.pem
 package-lock.json
 package.json
 https-config.js
+node_modules/
