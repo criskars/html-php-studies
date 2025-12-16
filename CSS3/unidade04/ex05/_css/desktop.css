@@ -103,3 +103,8 @@ nav#menu_desktop li  a {
 nav#menu_desktop li  a:hover {
 	background-color:rgb(153,0,0);
 }
+
+/* esconder menu do mobile */
+nav#menu_mobile {
+    display:none;
+}

@@ -1,0 +1,41 @@
+main, article, aside {
+    width:90%;	
+    text-align: center;
+    box-shadow: none;
+}
+
+header {
+    width: 93%;  
+    height: 90px; 
+}
+
+aside {
+    float: none;
+    margin:0 auto;
+}
+
+@media (max-width:660px) {
+    aside {
+        text-align: center;
+    }
+    
+    aside img:nth-child(1), aside img:nth-child(2) {
+        float: none;
+        text-align: center;
+    }  
+
+    article {
+        float: none;
+        margin: 0 auto;
+    }
+
+    header {
+        background-image: url("../_img/topo_mobile_440-centralizado.jpg");
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    header img {
+        display: none;
+    }
+}

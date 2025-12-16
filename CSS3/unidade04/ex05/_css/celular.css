@@ -56,4 +56,6 @@ nav#menu_mobile li  a {
 	margin-bottom:1px;
 }
 
-
+nav#menu_desktop {
+    display: none;
+}
