@@ -3,6 +3,14 @@ header {
     margin-top: 70px;
 }
 
+header h1 {
+    color: white;
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    font-size: 300%;
+    text-shadow: 0 0 7px #000;
+}
+
 nav {
     position:absolute;
     left:0;top:0;
