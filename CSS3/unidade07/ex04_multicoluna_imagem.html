@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="vierport" content="width=device-width, initial-scale=1.0">
         <title>Curso de CSS - Multicolumn</title>
         <style>
             body {
@@ -15,10 +16,7 @@
                 border:1px dotted #333333;
                 padding:20px;
 
-                /* Texto multicolumn */	
-                column-count: 2;
-                column-gap: 30px;
-                column-rule: 1px dotted #999;
+                
 
             }
             #janela h1 {
@@ -31,6 +29,15 @@
             #janela img.direita {
                 float: right;
                 margin:5px 0 5px 10px;
+            }
+
+            @media only screen and (orientation: landscape) {
+                #janela {
+                    /* Texto multicolumn */	
+                    column-count:2;
+                    column-gap: 30px;
+                    column-rule: 1px dotted #999;
+                }
             }
         </style>
     </head>

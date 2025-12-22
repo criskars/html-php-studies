@@ -1,67 +1,147 @@
 <html>
-    <head>
-        <title>Curso de CSS3 Avancado</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <style>
-            
-            body {
-                margin:0;
-                font-family: sans-serif;
-                background: #f0f0f0;
-            }
-        
+
+<head>
+    <title>Curso de CSS3 Avancado</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background: #f0f0f0;
+        }
+
+        header {
+            width: 100%;
+            height: 600px;
+            margin: 0 auto 0;
+        }
+
+        header img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            object-position: top center
+        }
+
+        main {
+            margin: 0;
+            width: 100%;
+            height: 1500px;
+            background: #f0f0f0;
+        }
+
+        img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        #apresentacao {
+            width: 90%;
+            max-width: 1500px;
+            min-width: 320px;
+            margin: 10px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            row-gap: 10px;
+            column-gap: 10px;
+            border-radius: 10px;
+        }
+
+        .pizza {
+            width: 100%;
+            border: solid 1px #333;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .pizza:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .pizza h3 {
+            text-align: center;
+        }
+
+        .pizza p {
+            text-align: justify;
+        }
+
+        .pizza a {
+            display: block;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            background: forestgreen;
+            color: #fff;
+            text-decoration: none;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        .pizza a:hover {
+            background: goldenrod;
+        }
+
+        /* para mobile */
+        @media only screen and (min-width:320px) and (max-width:414px) {
             header {
-                width: 100%;
-                height: 600px;
-                margin: 0 auto 0;
+                height: 320px;
             }
-            
-            header img {
-                width: 100%;
-                height: 100%;
-                
-                object-fit: cover;
-                object-position: top center
-            }   
-            
-            main {
-                margin:0;
-                width: 100%;
-                height: 1500px;
-                background: #f0f0f0;
+
+            #apresentacao {
+                flex-direction: column;
+                align-items: center;
             }
-            
-            /* para mobile */
-            @media only screen and (min-width:320px) and (max-width:414px) {
-                header {
-                    height: 320px;   
-                }
+        }
+
+        /* desktop grande */
+        @media only screen and (min-width:1367px) and (max-width:1980px) {
+            header {
+                height: 800px;
             }
-            
-            /* desktop grande */
-            @media only screen and (min-width:1367px) and (max-width:1980px) {
-                header {
-                    height: 800px;   
-                }
+        }
+
+        /* desktop gigante */
+        @media only screen and (min-width:1981px) and (max-width:2880px) {
+            header {
+                height: 1000px;
             }
-            
-            /* desktop gigante */
-            @media only screen and (min-width:1981px) and (max-width:2880px) {
-                header {
-                    height: 1000px;   
-                }
-            }          
-        
-        </style>
-    </head>
-    <body>
-        <header>
-            <img src="_img/mulher-computador-1200x628.jpg">
-        </header>
-        
-        <main>
-      
-        </main>
-    </body>
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="_img/mulher-computador-1200x628.jpg">
+    </header>
+
+    <main>
+        <section id="apresentacao">
+            <section class="pizza">
+                <img src="_img/pizza1.jpg">
+                <h3>Exemplo de uso do object-fit para thumb</h3>
+                <p>Redimensione a janela do navegador para ver o efeito do object-fit na imagem do cabeçalho.</p>
+                <a href="#">Apenas R$ xx,xx</a>
+            </section>
+            <section class="pizza">
+                <img src="_img/pizza2.jpg">
+                <h3>Exemplo de uso do object-fit para thumb</h3>
+                <p>Redimensione a janela do navegador para ver o efeito do object-fit na imagem do cabeçalho.</p>
+                <a href="#">Apenas R$ xx,xx</a>
+            </section>
+            <section class="pizza">
+                <img src="_img/pizza3.jpg">
+                <h3>Exemplo de uso do object-fit para thumb</h3>
+                <p>Redimensione a janela do navegador para ver o efeito do object-fit na imagem do cabeçalho.</p>
+                <a href="#">Apenas R$ xx,xx</a>
+            </section>
+    </main>
+</body>
+
 </html>
